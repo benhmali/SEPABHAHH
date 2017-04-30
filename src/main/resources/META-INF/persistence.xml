@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="sepa">
+		<class>project.rest.model.CodeId</class>
+		<class>project.rest.model.Debtor</class>
+		<class>project.rest.model.DebtorAccount</class>
+		<class>project.rest.model.DebtorAgent</class>
+		<class>project.rest.model.DirectDebitTransaction</class>
+		<class>project.rest.model.DirectDebitTransactionInformation</class>
+		<class>project.rest.model.Document</class>
+		<class>project.rest.model.FinalInstitutionIdentifier</class>
+		<class>project.rest.model.InstructedAmount</class>
+		<class>project.rest.model.MandateRelatedInformation</class>
+		<properties>
+			<!-- Login et password -->
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+
+			<!-- MySQL -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+			<!-- Adresse -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sepa" />
+			<property name="eclipselink.jdbc.native-sql" value="false" />
+
+			<!-- Creation Base de données ! create-or-extend-tables OR drop-and-create-tables ! -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="javax.persistence.schema-generation.database.action"
+				value="create" />
+			<property name="eclipselink.temporal.mutable" value="true" />
+
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,72 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DrctDbtTxInf">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="PmtId"/>
+              <xs:element name="InstdAmt">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:float">
+                      <xs:attribute type="xs:string" name="Ccy"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DrctDbtTx">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="MndtRltdInf">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="MndtId"/>
+                          <xs:element type="xs:date" name="DtOfSgntr"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DbtrAgt">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="FinInstnId">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="BIC"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Dbtr">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Nm"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DbtrAcct">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Id">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="IBAN"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="RmtInf"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
