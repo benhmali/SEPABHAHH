@@ -6,7 +6,7 @@ import project.rest.model.Document;
 
 public interface ISEPADao {
 
-public int getStats();
+public String getStats();
 	
 	public List<Document> getAllSepa();
 	

@@ -13,6 +13,7 @@ import project.rest.model.Document;
 import project.rest.service.EntityManagerConnectionService;
 import project.rest.service.ISEPAService;
 import project.rest.service.SEPAServiceImpl;
+import project.rest.service.ValidateSEPAByXsd;
 
 @RestController
 public class SEPAController {
@@ -28,14 +29,13 @@ public class SEPAController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<String> acceuil() {
-		return new ResponseEntity<String>("Ben Hmida Ali & Hfidhi Hajer "
-				+ "30/04/2017", HttpStatus.OK);
+		return new ResponseEntity<String>("Ben Hmida Ali & Hfidhi Hajer "+ "30/04/2017", HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<String> getSynthese() {
-		return new ResponseEntity<String>(Integer.toString(service.getStats()), HttpStatus.OK);
+		return new ResponseEntity<String>(service.getStats(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/trx/{id}", method = RequestMethod.GET)
@@ -55,13 +55,16 @@ public class SEPAController {
 
 	@RequestMapping(value = "/depot", method = RequestMethod.POST)
 	public ResponseEntity<String> depotSepa(@RequestBody Document sepa) {
-		System.out.println("ahla bkhouya");
 		try {
+			if (!ValidateSEPAByXsd.isValid(sepa))
+				return new ResponseEntity<String>("SEPA n'est pas valide",HttpStatus.BAD_REQUEST);
 
 			System.out.println(sepa.toString());
 
 			sepa = service.addSepa(sepa);
-			return new ResponseEntity<String>("", HttpStatus.OK);
+			String num_id = "BH"+ String.format("%04d",sepa.getId());
+			System.out.println(num_id);
+			return new ResponseEntity<String>(num_id, HttpStatus.OK);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			System.err.println(e.getStackTrace());

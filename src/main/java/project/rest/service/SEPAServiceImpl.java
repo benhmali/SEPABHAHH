@@ -15,9 +15,9 @@ public class SEPAServiceImpl implements ISEPAService {
 	}
 
 	@Override
-	public int getStats() {
+	public String getStats() {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.getStats();
 	}
 
 	@Override

@@ -1,11 +1,6 @@
 package project.rest.model;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
-import java.text.Format;
-import java.text.NumberFormat;
-import java.util.Formatter;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +28,14 @@ public class Document implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@XmlTransient
 	private long id;
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	@XmlElement(name = "DrctDbtTxInf")
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private DirectDebitTransactionInformation directDebitTransactionInformation;

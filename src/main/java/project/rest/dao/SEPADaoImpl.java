@@ -14,8 +14,15 @@ public class SEPADaoImpl implements ISEPADao {
 	}
 
 	@Override
-	public int getStats() {
-		return getAllSepa().size();
+	public String getStats() {
+		String chaine;
+		int nb_sepa = getAllSepa().size();
+		int count = 0;
+		for(Document doc : getAllSepa()){
+			count += doc.getDirectDebitTransactionInformation().getInstructedAmount().getValue();
+		}
+		chaine = "Le nombre de transactions sont :"+Integer.toString(nb_sepa)+" et la somme =  "+ Integer.toString(count);
+		return chaine;
 	}
 
 	@Override
@@ -30,7 +37,7 @@ public class SEPADaoImpl implements ISEPADao {
 	@Override
 	public Document getSepaById(String id) {
 		EntityManagerConnectionService.getInstance().getTransaction().begin();
-		Document sepa = EntityManagerConnectionService.getInstance().find(Document.class, id);
+		Document sepa = EntityManagerConnectionService.getInstance().find(Document.class, Long.parseLong(id));
 		EntityManagerConnectionService.getInstance().getTransaction().commit();
 		return sepa;
 	}

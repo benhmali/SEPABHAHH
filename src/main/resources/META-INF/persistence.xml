@@ -15,17 +15,20 @@
 		<class>project.rest.model.MandateRelatedInformation</class>
 		<properties>
 			<!-- Login et password -->
-			<property name="javax.persistence.jdbc.password" value="" />
-			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="fa9ad0b01037a79adef88875e6dedb2f5fb5bad5e3c08085701a38e654a33985
+			" />
+			<property name="javax.persistence.jdbc.user" value="psxbkisnafdktx" />
 
 			<!-- MySQL -->
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
 			<!-- Adresse -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sepa" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-176-34-113-15.eu-west-1.compute.amazonaws.com:5432/d7a379beu7sm39" />
 			<property name="eclipselink.jdbc.native-sql" value="false" />
 
-			<!-- Creation Base de données ! create-or-extend-tables OR drop-and-create-tables ! -->
+			<!-- Creation Base de données ! create-or-extend-tables OR drop-and-create-tables 
+				! -->
 			<property name="eclipselink.ddl-generation" value="create-tables" />
 			<property name="javax.persistence.schema-generation.database.action"
 				value="create" />
