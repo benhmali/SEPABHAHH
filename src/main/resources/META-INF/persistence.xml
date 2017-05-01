@@ -2,7 +2,7 @@
 <persistence version="2.1"
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="sepa">
+	<persistence-unit name="d7a379beu7sm39">
 		<class>project.rest.model.CodeId</class>
 		<class>project.rest.model.Debtor</class>
 		<class>project.rest.model.DebtorAccount</class>
@@ -16,8 +16,7 @@
 		<properties>
 			<!-- Login et password -->
 			<property name="javax.persistence.jdbc.password"
-				value="fa9ad0b01037a79adef88875e6dedb2f5fb5bad5e3c08085701a38e654a33985
-			" />
+				value="fa9ad0b01037a79adef88875e6dedb2f5fb5bad5e3c08085701a38e654a33985" />
 			<property name="javax.persistence.jdbc.user" value="psxbkisnafdktx" />
 
 			<!-- MySQL -->
