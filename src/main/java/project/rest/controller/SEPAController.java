@@ -69,7 +69,7 @@ public class SEPAController {
 			System.err.println(e.getMessage());
 			System.err.println(e.getStackTrace());
 
-			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }
